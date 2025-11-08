@@ -5,6 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BIT COURSE WEBSITE</title>
   <link rel="stylesheet" href="bit.css">
+  <style>
+    /* Basic styling for hamburger menu and scroll button */
+    .hamburger {
+      cursor: pointer;
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+    }
+    .nav-links.active {
+      display: block;
+    }
+    #scrollTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; flex-direction: column; background: #fff; position: absolute; top: 60px; right: 10px; border-radius: 5px; padding: 10px; }
+      .nav-links li { margin: 10px 0; }
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -60,27 +97,57 @@
     </div>
   </section>
 
-     <!-- sa vission at mission -->
-    <section class="vision-mission">
-  <div class="vm-container">
-    <div class="vm-box vision">
-      <h2>VISION</h2>
-      <p>
-        A globally recognized university known for academic excellence,
-        innovative and responsive research and extension services for national
-        and global development.
-      </p>
+  <!-- Vision and Mission Section -->
+  <section class="vision-mission">
+    <div class="vm-container">
+      <div class="vm-box vision">
+        <h2>VISION</h2>
+        <p>
+          A globally recognized university known for academic excellence,
+          innovative and responsive research and extension services for national
+          and global development.
+        </p>
+      </div>
+      <div class="vm-box mission">
+        <h2>MISSION</h2>
+        <p>
+          SLSU shall provide global education that nurtures competent professionals
+          who are morally grounded and responsive to community needs. The university
+          is also committed to conduct research and extension across various fields
+          while innovatively utilizing and regenerating its resources through
+          sustainable environmental approaches.
+        </p>
+      </div>
     </div>
-    <div class="vm-box mission">
-      <h2>MISSION</h2>
-      <p>
-        SLSU shall provide global education that nurtures competent professionals
-        who are morally grounded and responsive to community needs. The university
-        is also committed to conduct research and extension across various fields
-        while innovatively utilizing and regenerating its resources through
-        sustainable environmental approaches.
-      </p>
-    </div>
-  </div>
-</section>
+  </section>
 
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn">↑</button>
+
+  <!-- JavaScript Functions -->
+  <script>
+    // ====== Function 1: Toggle Hamburger Menu ======
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // ====== Function 2: Scroll to Top Button ======
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    window.onscroll = function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollTopBtn.style.display = "block";
+      } else {
+        scrollTopBtn.style.display = "none";
+      }
+    };
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

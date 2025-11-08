@@ -342,6 +342,25 @@ footer {
 
 .vm-container {
   display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.vm-box {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  flex: 1 1 400px;
+}
+.vm-box h2 {
+  color: var(--primary);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.vm-container {
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
